@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .theFather {
+            background-color: black;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .ghost {
+            position: fixed;
+            width: 20vw;
+            height: 30vh;
+            margin-top: 40vh;
+            object-fit: cover;
+        }
+
+        .ghost > img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .animContainer {
+            position: fixed;
+            margin-top: 40vh;
+            margin-left: 80vw;
+            background-image: url(Images/pacman.png);
+            background-repeat: no-repeat;
+            height: 30vh;
+            width: 12vw;
+            background-color: black;
+            animation: moveBackground .2s steps(3) alternate infinite, moveAround 2s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            0% {
+                background-position: 0px;
+            }
+
+            100% {
+                background-position: -600px;
+            }
+        }
+
+        @keyframes moveAround {
+            0% {
+                transform: translate(100px);
+            }
+
+            100% {
+                transform: translate(-920px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="theFather">
+        <div class="animContainer"></div>
+        <div class="ghost"><img src="Images/ghost.png" alt="ghost"></div>
+    </div>
+</body>
+
+</html>
